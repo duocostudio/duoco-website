@@ -82,7 +82,9 @@ export default function Home() {
             </div>
             <div className="h-16"></div>
             <div className="flex flex-col">
-              <Title>We design products</Title>
+              <div className="-mb-4">
+                <Title>We design products</Title>
+              </div>
               <Subtitle size="6xl">people love to use</Subtitle>
             </div>
             <div className="h-16"></div>
@@ -107,7 +109,9 @@ export default function Home() {
               <div className="h-20"></div>
               <div className="flex flex-row items-center mb-20">
                 <div className="flex flex-col">
-                  <Title>Case</Title>
+                  <div className="-mb-4">
+                    <Title>Case</Title>
+                  </div>
                   <Subtitle size="6xl">Studies</Subtitle>
                 </div>
                 <div className="ml-auto w-5/12">
@@ -174,7 +178,7 @@ export default function Home() {
       {/* Reviews */}
       <section>
         <Container>
-          <div className="p-40">
+          <div className="p-24">
             <div className="flex flex-col">
               <Title>Reviews</Title>
               <Subtitle>Words on the street</Subtitle>
