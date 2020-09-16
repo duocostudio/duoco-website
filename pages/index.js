@@ -187,7 +187,9 @@ export default function Home() {
                 <div className="h-64 w-64 bg-gray-400"></div>
                 <div className="ml-auto w-1/2">
                   <div className="flex flex-col">
-                    <h1 className="text-6xl font-bold">"</h1>
+                    <div className="-mb-16">
+                      <span className="font-bold" style={{ fontSize: 120 }}>“</span>
+                    </div>
                     <div className="mb-16">
                       <Paragraph>
                         "We had many detailed requirements for the new Telus Sky building which Orizon
@@ -198,8 +200,8 @@ export default function Home() {
                     </div>
                     <div className="flex flex-row items-end">
                       <div className="flex flex-col">
-                        <span className="text-2xl">Colleen Doll</span>
-                        <span className="text-xl opacity-50">Founder at Tinder</span>
+                        <h4 className="text-2xl font-bold">Colleen Doll</h4>
+                        <h5 className="text-lg opacity-50">Founder at Tinder</h5>
                       </div>
                       <div className="ml-auto bg-gray-400 w-32 h-16"></div>
                     </div>
