@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Duōco Design Agency - We design products people love</title>
         <link rel="icon" type="image/png" href="/favicon.png"></link>
         <link href="https://unpkg.com/tailwindcss@^1.4/dist/tailwind.min.css" rel="stylesheet" />
       </Head>
