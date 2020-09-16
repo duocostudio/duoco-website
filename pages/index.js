@@ -61,6 +61,15 @@ export default function Home() {
     <div>
       <Head>
         <title>Duōco Design Agency - We design products people love</title>
+        <meta name="description" content="We design products people love"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <meta name="keywords" content="duoco, design, agency"></meta>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Duōco Design Agency" />
+        <meta property="og:description" content="We design products people love" />
+        <meta property="og:image" content="/favicon.png" />
+        <meta property="og:url" content="https://duoco-website.vercel.app/" />
+        <meta property="og:site_name" content="Duōco Design Agency" />
         <link rel="icon" type="image/png" href="/favicon.png"></link>
         <link href="https://unpkg.com/tailwindcss@^1.4/dist/tailwind.min.css" rel="stylesheet" />
       </Head>
