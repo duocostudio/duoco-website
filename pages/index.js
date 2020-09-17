@@ -11,6 +11,12 @@ import Subtitle from '../components/Subtitle'
 import Title from '../components/Title'
 import WorkItem from '../components/WorkItem'
 
+import Facebook from '../public/facebook.svg'
+import Instagram from '../public/instagram.svg'
+import Twitter from '../public/twitter.svg'
+import Dribbble from '../public/dribbble.svg'
+import Menu from '../public/menu.svg'
+
 const FOOTTER_LINKS = [
   { title: 'Home', URL: '/' },
   { title: 'About', URL: '/about' },
@@ -19,10 +25,10 @@ const FOOTTER_LINKS = [
 ]
 
 const FOOTER_SOCIAL_LINKS = [
-  { title: 'Instagram', URL: 'https://www.instagram.com/' },
-  { title: 'Twitter', URL: 'https://twitter.com/' },
-  { title: 'Dribbble', URL: 'https://www.dribbble.com/' },
-  { title: 'Facebook', URL: 'https://www.facebook.com/' },
+  { title: 'Instagram', URL: 'https://www.instagram.com/', icon: <Instagram /> },
+  { title: 'Twitter', URL: 'https://twitter.com/', icon: <Twitter /> },
+  { title: 'Dribbble', URL: 'https://www.dribbble.com/', icon: <Dribbble /> },
+  { title: 'Facebook', URL: 'https://www.facebook.com/', icon: <Facebook /> },
 ]
 
 const SERVICES = [
@@ -70,14 +76,16 @@ export default function Home() {
         <meta property="og:image" content="/favicon.png" />
         <meta property="og:url" content="https://duoco-website.vercel.app/" />
         <meta property="og:site_name" content="Duōco Design Agency" />
-        <link rel="icon" type="image/png" href="/favicon.png"></link>
+        <link rel="icon" type="image/svg" href="/favicon.svg"></link>
         <link href="https://unpkg.com/tailwindcss@^1.4/dist/tailwind.min.css" rel="stylesheet" />
       </Head>
 
       <div className="container mx-auto fixed left-0 right-0 top-0">
         <div className="flex flex-row items-center h-40">
           <div className="ml-auto flex flex-row items-center">
-            <div className="square"></div>
+            <div className="square flex flex-row items-center justify-row">
+              <Menu />
+            </div>
           </div>
         </div>
       </div>
@@ -249,7 +257,12 @@ export default function Home() {
             <div className="flex flex-row items-center">
               <DuocoLogo />
               <div className="ml-auto flex flex-row items-center">
-                {FOOTER_SOCIAL_LINKS.map((item, index) => <SocialItem key={index} />)}
+                {FOOTER_SOCIAL_LINKS.map((item, index) => (
+                  <SocialItem
+                    key={index}
+                    title={item.title}
+                    icon={item.icon} />
+                ))}
               </div>
             </div>
             <div className="h-12"></div>
