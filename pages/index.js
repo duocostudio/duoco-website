@@ -126,6 +126,9 @@ export default function Home() {
   const [showMenu, setShowMenu] = useState(false)
   const [reviewIndex, setReviewIndex] = useState(0)
   const review = REVIEWS[reviewIndex]
+  function handleMenu() {
+    setShowMenu(!showMenu)
+  }
   function handlePrev() {
     setReviewIndex(reviewIndex === 0 ? REVIEWS.length - 1 : reviewIndex - 1)
   }
@@ -149,16 +152,36 @@ export default function Home() {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css" integrity="sha512-KO1h5ynYuqsFuEicc7DmOQc+S9m2xiCKYlC3zcZCSEw0RGDsxcMnppRaMZnb0DdzTDPaW22ID/gAGCZ9i+RT/w==" crossOrigin="anonymous" />
       </Head>
 
-      {
-        showMenu &&
+      {showMenu &&
         <div className="fixed left-0 right-0 top-0">
           <div className="w-screen h-screen flex flex-row justify-end">
-            <div className="w-1/2 h-full bg-black opacity-75">
-              {/*  */}
+            <div onClick={handleMenu} className="w-1/2 h-full bg-white bg-opacity-75"></div>
+            <div className="flex flex-col items-center w-1/2 h-full bg-black overflow-y-scroll">
+              <div className="h-20 flex-shrink-0"></div>
+              <div className="flex flex-col items-center space-y-6">
+                <h1 className="cursor-pointer font-light text-4xl text-white border-white border-b-2">Home</h1>
+                <h1 className="cursor-pointer font-light text-4xl text-white text-opacity-50">About</h1>
+                <h1 className="cursor-pointer font-light text-4xl text-white text-opacity-50">Contact us</h1>
+              </div>
+              <div className="h-40 flex-shrink-0"></div>
+              <h2 className="font-bold text-xl text-white">Have a project for us?</h2>
+              <div className="h-10 flex-shrink-0"></div>
+              <div className="py-5 px-12 bg-white flex flex-row items-center justify-center">
+                <span className="text-sm font-semibold tracking-wide text-black uppercase">Let's talk</span>
+              </div>
+              <div className="h-20 flex-shrink-0"></div>
+              <div className="flex flex-row items-center justify-center space-x-5">
+                {FOOTER_SOCIAL_LINKS.map((item, index) => (
+                  <SocialItem
+                    key={index}
+                    title={item.title}
+                    icon={item.icon} />
+                ))}
+              </div>
+              <div className="h-20 flex-shrink-0"></div>
             </div>
           </div>
-        </div>
-      }
+        </div>}
 
       <div className="fixed left-0 right-0 top-0">
         <Container>
@@ -166,7 +189,7 @@ export default function Home() {
             <div className="ml-auto flex flex-row items-center">
               <div
                 className="select-none bg-black hover:bg-gray-700 cursor-pointer square flex flex-row items-center justify-row"
-                onClick={() => setShowMenu(!showMenu)}>
+                onClick={handleMenu}>
                 <Menu />
               </div>
             </div>
@@ -307,7 +330,7 @@ export default function Home() {
                   <div className="flex flex-row items-end">
                     <div className="flex flex-col">
                       <h4 className="text-2xl font-bold">{review.author}</h4>
-                      <h5 className="text-lg opacity-50">{review.label}</h5>
+                      <h5 className="text-lg text-black text-opacity-50">{review.label}</h5>
                     </div>
                     <div className="flex flex-row items-center ml-auto">
                       <div
@@ -386,6 +409,6 @@ export default function Home() {
           width: 52px;
         }
       `}</style>
-    </div>
+    </div >
   )
 }
