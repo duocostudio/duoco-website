@@ -9,7 +9,7 @@ function TagGroup({ children }) {
 function Tag({ children }) {
   return (
     <li>
-      <div className="px-5 py-2 bg-white bg-opacity-25">
+      <div className="px-5 py-1 bg-white bg-opacity-25">
         <span className="uppercase text-xs text-white font-bold">{children}</span>
       </div>
     </li>

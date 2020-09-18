@@ -1,5 +1,5 @@
-export default function Title({ size, children }) {
+export default function Title({ children }) {
   return (
-    <h2 className={`text-${size || '4xl'} font-bold`}>{children}</h2>
+    <h2 className="text-6xl font-bold">{children}</h2>
   )
 }

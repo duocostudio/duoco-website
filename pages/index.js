@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Button from '../components/Button'
 import DuocoLogo from '../components/DuocoLogo'
-import ClientItems from '../components/ClientItems'
 import Container from '../components/Container'
 import Paragraph from '../components/Paragraph'
 import ServiceItem from '../components/ServiceItem'
@@ -96,8 +95,43 @@ const CLIENTS = [
   },
 ]
 
+const REVIEWS = [
+  {
+    comment: 'We had many detailed requirements for the new Telus Sky building which Duōco were able to easily meet. They developed an MVP of the kiosk that focused on the most important features first. This made our employees and guests very satisfied thanks to the improved support, engagement, and navigation their system brought us.',
+    author: 'David Kalt',
+    label: 'Founder at Tinder',
+    picture: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5f400edca45d957c64dc07e7_Group%201019%20(1).png'
+  },
+  {
+    comment: 'The Duōco team a) has been an absolute pleasure to work with and b) done exceptional work. We gave them an impossible deadline, and even with that, they gave us more optionality, design iterations and degrees of freedom than could be reasonably asked for!',
+    author: 'Colleen Doll',
+    label: 'Co-founder, CEO of Marble',
+    picture: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5f400e4b0d812ec9232a376e_Group%201018%20(1).png'
+  },
+  {
+    comment: 'The Duōco team is excellent. They put in an incredible amount of effort on our project and delivered something we\'re really happy with. Would highly recommend.',
+    author: 'Sean Rad',
+    label: 'Senior Consultant at Siemens',
+    picture: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5f3e8a6db863753a7091707b_5f29fe6be1621312eb6140ab_Group%201016%20(1).png'
+  },
+  {
+    comment: 'Working with Duōco was truly a delightful experience. From our kick-off meeting to our final delivery, Duōco has the creative depth to go from an idea to a fully packaged and branded deliverable.   Their design commitment always focuses on brand and impact - which is very refreshing. On top of that, they are world class communicators which makes the process fun and non-intimidating.',
+    author: 'Mark Solomon',
+    label: 'Founder at Kernel, Venmo, Braintree, OS Fund',
+    picture: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5f29fe6cf3e8175c39eb7a87_Group%201013.png'
+  }
+]
+
 export default function Home() {
   const [showMenu, setShowMenu] = useState(false)
+  const [reviewIndex, setReviewIndex] = useState(0)
+  const review = REVIEWS[reviewIndex]
+  function handlePrev() {
+    setReviewIndex(reviewIndex === 0 ? REVIEWS.length - 1 : reviewIndex - 1)
+  }
+  function handleNext() {
+    setReviewIndex(reviewIndex < REVIEWS.length - 1 ? reviewIndex + 1 : 0)
+  }
   return (
     <div>
       <Head>
@@ -112,7 +146,7 @@ export default function Home() {
         <meta property="og:url" content="https://duoco-website.vercel.app/" />
         <meta property="og:site_name" content="Duōco Design Agency" />
         <link rel="icon" type="image/svg" href="/favicon.svg"></link>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css" integrity="sha512-KO1h5ynYuqsFuEicc7DmOQc+S9m2xiCKYlC3zcZCSEw0RGDsxcMnppRaMZnb0DdzTDPaW22ID/gAGCZ9i+RT/w==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css" integrity="sha512-KO1h5ynYuqsFuEicc7DmOQc+S9m2xiCKYlC3zcZCSEw0RGDsxcMnppRaMZnb0DdzTDPaW22ID/gAGCZ9i+RT/w==" crossOrigin="anonymous" />
       </Head>
 
       {
@@ -149,16 +183,14 @@ export default function Home() {
             </div>
             <div className="h-16"></div>
             <div className="flex flex-col">
-              <div className="-mb-4">
-                <Title>We design products</Title>
-              </div>
-              <Subtitle size="6xl">people love to use</Subtitle>
+              <Title>We design products</Title>
+              <Subtitle>people love to use</Subtitle>
             </div>
             <div className="h-16"></div>
             <div className="w-1/2">
               <Paragraph>
                 We help startups and Fortune 500 companies craft engaging
-                brands, websites, and apps. Based in Montréal, Canada.
+                brands, websites, and apps. Based in Tijuana, Mexico.
               </Paragraph>
             </div>
             <div className="h-16"></div>
@@ -176,10 +208,8 @@ export default function Home() {
               <div className="h-20"></div>
               <div className="flex flex-row items-center mb-20">
                 <div className="flex flex-col">
-                  <div className="-mb-4">
-                    <Title>Case</Title>
-                  </div>
-                  <Subtitle size="6xl">Studies</Subtitle>
+                  <Title>Case</Title>
+                  <Subtitle>Studies</Subtitle>
                 </div>
                 <div className="ml-auto w-5/12">
                   <Paragraph>
@@ -211,8 +241,8 @@ export default function Home() {
               <div className="h-20"></div>
               <div className="flex flex-row items-center mb-20">
                 <div className="flex flex-col">
-                  <Title>Clients</Title>
-                  <Subtitle>We loved working with</Subtitle>
+                  <Title>Our</Title>
+                  <Subtitle>Clients</Subtitle>
                 </div>
                 <span className="ml-auto w-1/2">
                   <Paragraph>
@@ -239,9 +269,9 @@ export default function Home() {
       <section>
         <Container>
           <div className="flex flex-col">
-            <div className="h-20"></div>
+            <div className="h-40"></div>
             <Title>Services</Title>
-            <Subtitle size="6xl">What we do</Subtitle>
+            <Subtitle>What we do</Subtitle>
             <div className="h-32"></div>
             <div className="flex flex-row px-24">
               <ul>
@@ -251,7 +281,7 @@ export default function Home() {
                 {SERVICES.slice(6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
               </ul>
             </div>
-            <div className="h-20"></div>
+            <div className="h-40"></div>
           </div>
         </Container>
       </section>
@@ -259,36 +289,38 @@ export default function Home() {
       {/* Reviews */}
       <section>
         <Container>
-          <div className="p-24">
+          <div className="px-24">
             <div className="flex flex-col">
+              <div className="h-40"></div>
               <Title>Reviews</Title>
               <Subtitle>Words on the street</Subtitle>
-              <div className="h-24"></div>
-              <div className="flex flex-row items-end">
-                <div className="h-64 w-64 bg-gray-400"></div>
-                <div className="ml-auto w-1/2">
-                  <div className="flex flex-col">
-                    <div className="-mb-16">
-                      <span className="font-bold" style={{ fontSize: 120 }}>“</span>
+              <div className="h-10"></div>
+              <div className="flex flex-row space-x-16 items-end">
+                <img className="w-4/12" src={review.picture}></img>
+                <div className="flex flex-col">
+                  <div className="-mb-12">
+                    <span className="font-bold" style={{ fontSize: 100 }}>“</span>
+                  </div>
+                  <div className="mb-16">
+                    <Paragraph>{review.comment}</Paragraph>
+                  </div>
+                  <div className="flex flex-row items-end">
+                    <div className="flex flex-col">
+                      <h4 className="text-2xl font-bold">{review.author}</h4>
+                      <h5 className="text-lg opacity-50">{review.label}</h5>
                     </div>
-                    <div className="mb-16">
-                      <Paragraph>
-                        "We had many detailed requirements for the new Telus Sky building which Orizon
-                        were able to easily meet. They developed an MVP of the kiosk that focused on the
-                        most important features first. This made our employees and guests very satisfied
-                        thanks to the improved support, engagement, and navigation their system brought us."
-                      </Paragraph>
-                    </div>
-                    <div className="flex flex-row items-end">
-                      <div className="flex flex-col">
-                        <h4 className="text-2xl font-bold">Colleen Doll</h4>
-                        <h5 className="text-lg opacity-50">Founder at Tinder</h5>
-                      </div>
-                      <div className="ml-auto bg-gray-400 w-32 h-16"></div>
+                    <div className="flex flex-row items-center ml-auto">
+                      <div
+                        onClick={handlePrev}
+                        className="cursor-pointer select-none bg-gray-500 hover:bg-gray-600 w-16 h-16"></div>
+                      <div
+                        onClick={handleNext}
+                        className="cursor-pointer select-none bg-gray-500 hover:bg-gray-600 w-16 h-16"></div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div className="h-40"></div>
             </div>
           </div>
         </Container>
@@ -298,7 +330,7 @@ export default function Home() {
       <section>
         <Container>
           <div className="flex flex-col items-center text-center">
-            <div className="h-20"></div>
+            <div className="h-40"></div>
             <Title>Need help with a project?</Title>
             <Subtitle>Let’s talk!</Subtitle>
             <div className="my-10 w-1/2">
@@ -320,7 +352,7 @@ export default function Home() {
           <div className="flex flex-col">
             <div className="flex flex-row items-center">
               <DuocoLogo />
-              <div className="ml-auto flex flex-row items-center">
+              <div className="ml-auto flex flex-row items-center space-x-5">
                 {FOOTER_SOCIAL_LINKS.map((item, index) => (
                   <SocialItem
                     key={index}
@@ -331,11 +363,9 @@ export default function Home() {
             </div>
             <div className="h-12"></div>
             <div className="flex flex-row items-center">
-              {FOOTTER_LINKS.map((item, index) => (
-                <div key={index} className="mr-12">
-                  <span>{item.title}</span>
-                </div>
-              ))}
+              <div className="flex flex-row space-x-12">
+                {FOOTTER_LINKS.map((item, index) => <span key={index}>{item.title}</span>)}
+              </div>
               <div className="ml-auto">
                 <span>&copy; {new Date().getFullYear()} Duōco.  All Rights Reserved.</span>
               </div>
