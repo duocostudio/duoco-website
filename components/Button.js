@@ -1,6 +1,6 @@
-export default function Button({ size, children }) {
+export default function Button({ children }) {
   return (
-    <div className="py-5 px-12 bg-black">
+    <div className="select-none cursor-pointer py-5 px-12 bg-black hover:bg-gray-700">
       <span className="text-sm font-semibold tracking-wide text-white uppercase">{children}</span>
     </div>
   )

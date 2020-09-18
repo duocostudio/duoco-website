@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useState } from 'react'
 
 import Button from '../components/Button'
 import DuocoLogo from '../components/DuocoLogo'
@@ -9,7 +10,7 @@ import ServiceItem from '../components/ServiceItem'
 import SocialItem from '../components/SocialItem'
 import Subtitle from '../components/Subtitle'
 import Title from '../components/Title'
-import WorkItem from '../components/WorkItem'
+import Project from '../components/Project'
 
 import Facebook from '../public/facebook.svg'
 import Instagram from '../public/instagram.svg'
@@ -46,23 +47,57 @@ const SERVICES = [
 ]
 
 const PROJECTS = [
-  { title: '-', description: '-', tags: ['-'] },
-  { title: '-', description: '-', tags: ['-'] },
-  { title: '-', description: '-', tags: ['-'] },
-  { title: '-', description: '-', tags: ['-'] },
-  { title: '-', description: '-', tags: ['-'] },
-  { title: '-', description: '-', tags: ['-'] },
-  { title: '-', description: '-', tags: ['-'] },
+  {
+    title: 'Your Next Job',
+    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5f3fbddf12257d1abf9ee616_5e0fe65d946b120472aa69f6_Talent%202.png',
+    description: 'Rebranding, Strategy & Design for one of the world largest job searching platform.',
+    tags: ['Brand', 'Web', 'iOS', 'Android'],
+    backgroundColor: 'bg-gray-700'
+  },
+  {
+    title: 'Journal Together',
+    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5e6b6b3340b2ff0c422f36ae_longwalks%20white%20logo%201.png',
+    description: 'Longwalks is an online journal that helps friend and families develop closer relationships.',
+    tags: ['iOS', 'Android'],
+    backgroundColor: 'bg-green-600'
+  },
+  {
+    title: 'Telus Kiosk',
+    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5e6695c7366cda239d3a5e3f_Logo_TELUS%201.png',
+    description: 'We were approached by Telus to build a digital kiosk experience for the new Telus sky building in Calgary, Canada.',
+    tags: ['Web', 'Digital Kiosk'],
+    backgroundColor: 'bg-indigo-700'
+  },
+  {
+    title: 'Social Meet Up',
+    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5d503171a53fc77309ac16d9_Adobepng.png',
+    description: 'To help Adobde release their new product, we created a UI kit that the design community loved.',
+    tags: ['Web', 'iOS'],
+    backgroundColor: 'bg-purple-700'
+  },
 ]
 
 const CLIENTS = [
-  { name: '-', image: '-' },
-  { name: '-', image: '-' },
-  { name: '-', image: '-' },
-  { name: '-', image: '-' },
+  {
+    name: 'Your Next Job',
+    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5f3fbddf12257d1abf9ee616_5e0fe65d946b120472aa69f6_Talent%202.png',
+  },
+  {
+    name: 'Journal Together',
+    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5e6b6b3340b2ff0c422f36ae_longwalks%20white%20logo%201.png',
+  },
+  {
+    name: 'Telus Kiosk',
+    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5e6695c7366cda239d3a5e3f_Logo_TELUS%201.png',
+  },
+  {
+    name: 'Social Meet Up',
+    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5d503171a53fc77309ac16d9_Adobepng.png',
+  },
 ]
 
 export default function Home() {
+  const [showMenu, setShowMenu] = useState(false)
   return (
     <div>
       <Head>
@@ -77,17 +112,32 @@ export default function Home() {
         <meta property="og:url" content="https://duoco-website.vercel.app/" />
         <meta property="og:site_name" content="Duōco Design Agency" />
         <link rel="icon" type="image/svg" href="/favicon.svg"></link>
-        <link href="https://unpkg.com/tailwindcss@^1.4/dist/tailwind.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css" integrity="sha512-KO1h5ynYuqsFuEicc7DmOQc+S9m2xiCKYlC3zcZCSEw0RGDsxcMnppRaMZnb0DdzTDPaW22ID/gAGCZ9i+RT/w==" crossorigin="anonymous" />
       </Head>
 
-      <div className="container mx-auto fixed left-0 right-0 top-0">
-        <div className="flex flex-row items-center h-40">
-          <div className="ml-auto flex flex-row items-center">
-            <div className="square flex flex-row items-center justify-row">
-              <Menu />
+      {
+        showMenu &&
+        <div className="fixed left-0 right-0 top-0">
+          <div className="w-screen h-screen flex flex-row justify-end">
+            <div className="w-1/2 h-full bg-black opacity-75">
+              {/*  */}
             </div>
           </div>
         </div>
+      }
+
+      <div className="fixed left-0 right-0 top-0">
+        <Container>
+          <div className="flex flex-row items-center h-40">
+            <div className="ml-auto flex flex-row items-center">
+              <div
+                className="select-none bg-black hover:bg-gray-700 cursor-pointer square flex flex-row items-center justify-row"
+                onClick={() => setShowMenu(!showMenu)}>
+                <Menu />
+              </div>
+            </div>
+          </div>
+        </Container>
       </div>
 
       {/* Welcome */}
@@ -139,7 +189,15 @@ export default function Home() {
                   </Paragraph>
                 </div>
               </div>
-              {PROJECTS.map((item) => <WorkItem key={item} />)}
+              {PROJECTS.map((item, index) => (
+                <Project
+                  key={index}
+                  title={item.title}
+                  logo={item.logo}
+                  description={item.description}
+                  backgroundColor={item.backgroundColor}
+                  tags={item.tags} />
+              ))}
             </div>
           </div>
         </Container>
@@ -162,8 +220,14 @@ export default function Home() {
                   </Paragraph>
                 </span>
               </div>
-              <ul className="flex flex-row items-center justify-center">
-                {CLIENTS.map((item, index) => <ClientItems key={index} />)}
+              <ul className="flex flex-row items-center justify-center space-x-6">
+                {CLIENTS.map((item, index) => (
+                  <li key={index}>
+                    <div className="bg-gray-400 rounded h-24 w-40 flex flex-row items-center justify-center">
+                      <img className="w-32" src={item.logo}></img>
+                    </div>
+                  </li>
+                ))}
               </ul>
               <div className="h-20"></div>
             </div>
@@ -177,7 +241,7 @@ export default function Home() {
           <div className="flex flex-col">
             <div className="h-20"></div>
             <Title>Services</Title>
-            <Subtitle>What we do</Subtitle>
+            <Subtitle size="6xl">What we do</Subtitle>
             <div className="h-32"></div>
             <div className="flex flex-row px-24">
               <ul>
@@ -290,7 +354,6 @@ export default function Home() {
         .square {
           height: 52px;
           width: 52px;
-          background-color: black;
         }
       `}</style>
     </div>
