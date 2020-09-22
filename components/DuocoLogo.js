@@ -1,4 +1,4 @@
-import Logo from '../public/favicon.svg'
+import Logo from '../public/images/favicon.svg'
 
 export default function DuocoLogo() {
   return (

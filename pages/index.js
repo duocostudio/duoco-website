@@ -11,11 +11,11 @@ import Subtitle from '../components/Subtitle'
 import Title from '../components/Title'
 import Project from '../components/Project'
 
-import Facebook from '../public/facebook.svg'
-import Instagram from '../public/instagram.svg'
-import Twitter from '../public/twitter.svg'
-import Dribbble from '../public/dribbble.svg'
-import Menu from '../public/menu.svg'
+import Facebook from '../public/images/facebook.svg'
+import Instagram from '../public/images/instagram.svg'
+import Twitter from '../public/images/twitter.svg'
+import Dribbble from '../public/images/dribbble.svg'
+import Menu from '../public/images/menu.svg'
 
 const FOOTTER_LINKS = [
   { title: 'Home', URL: '/' },
@@ -47,51 +47,62 @@ const SERVICES = [
 
 const PROJECTS = [
   {
-    title: 'Your Next Job',
-    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5f3fbddf12257d1abf9ee616_5e0fe65d946b120472aa69f6_Talent%202.png',
+    title: '360 Juice',
+    logo: '/images/customers/360juice@2x.png',
     description: 'Rebranding, Strategy & Design for one of the world largest job searching platform.',
     tags: ['Brand', 'Web', 'iOS', 'Android'],
-    backgroundColor: 'bg-gray-700'
-  },
-  {
-    title: 'Journal Together',
-    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5e6b6b3340b2ff0c422f36ae_longwalks%20white%20logo%201.png',
-    description: 'Longwalks is an online journal that helps friend and families develop closer relationships.',
-    tags: ['iOS', 'Android'],
     backgroundColor: 'bg-green-600'
   },
   {
-    title: 'Telus Kiosk',
-    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5e6695c7366cda239d3a5e3f_Logo_TELUS%201.png',
+    title: 'Magia Negra',
+    logo: '/images/customers/magianegra@2x.png',
+    description: 'Longwalks is an online journal that helps friend and families develop closer relationships.',
+    tags: ['iOS', 'Android'],
+    backgroundColor: 'bg-gray-800'
+  },
+  {
+    title: 'Networking',
+    logo: '/images/customers/networking@2x.png',
     description: 'We were approached by Telus to build a digital kiosk experience for the new Telus sky building in Calgary, Canada.',
     tags: ['Web', 'Digital Kiosk'],
     backgroundColor: 'bg-indigo-700'
   },
   {
-    title: 'Social Meet Up',
-    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5d503171a53fc77309ac16d9_Adobepng.png',
+    title: 'Pamcakes',
+    logo: '/images/customers/pamcakes@2x.png',
     description: 'To help Adobde release their new product, we created a UI kit that the design community loved.',
     tags: ['Web', 'iOS'],
-    backgroundColor: 'bg-purple-700'
+    backgroundColor: 'bg-purple-600'
+  },
+  {
+    title: 'Sounds Good',
+    logo: '/images/customers/soundsgood@2x.png',
+    description: 'To help Adobde release their new product, we created a UI kit that the design community loved.',
+    tags: ['Web', 'iOS'],
+    backgroundColor: 'bg-blue-600'
   },
 ]
 
 const CLIENTS = [
   {
-    name: 'Your Next Job',
-    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5f3fbddf12257d1abf9ee616_5e0fe65d946b120472aa69f6_Talent%202.png',
+    name: '360 Juice',
+    logo: '/images/customers/360juice@2x.png',
   },
   {
-    name: 'Journal Together',
-    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5e6b6b3340b2ff0c422f36ae_longwalks%20white%20logo%201.png',
+    name: 'Magia Negra',
+    logo: '/images/customers/magianegra@2x.png',
   },
   {
-    name: 'Telus Kiosk',
-    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5e6695c7366cda239d3a5e3f_Logo_TELUS%201.png',
+    name: 'Networking',
+    logo: '/images/customers/networking@2x.png',
   },
   {
-    name: 'Social Meet Up',
-    logo: 'https://assets.website-files.com/5d27763c46ba9e561dc5b972/5d503171a53fc77309ac16d9_Adobepng.png',
+    name: 'Pamcakes',
+    logo: '/images/customers/pamcakes@2x.png',
+  },
+  {
+    name: 'Sounds Good',
+    logo: '/images/customers/soundsgood@2x.png',
   },
 ]
 
@@ -276,8 +287,8 @@ export default function Home() {
               <ul className="flex flex-row items-center justify-center space-x-6">
                 {CLIENTS.map((item, index) => (
                   <li key={index}>
-                    <div className="bg-gray-400 rounded h-24 w-40 flex flex-row items-center justify-center">
-                      <img className="w-32" src={item.logo}></img>
+                    <div className="flex flex-row items-center justify-center">
+                      <img className="w-48" src={item.logo}></img>
                     </div>
                   </li>
                 ))}

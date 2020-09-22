@@ -20,7 +20,7 @@ export default function Project({ title, logo, description, tags, backgroundColo
   return (
     <div className={`w-full rounded mb-20 p-20 ${backgroundColor}`}>
       <div className="flex flex-col items-start">
-        <img className="w-32 mb-5" src={logo}></img>
+        <img className="w-40 mb-5" src={logo}></img>
         <h1 className="font-bold text-white text-5xl mb-5">{title}</h1>
         <div className="text-white w-5/12 mb-16">
           <p className="text-lg font-light leading-8 text-white text-opacity-50">{description}</p>

@@ -1,4 +1,4 @@
-import Check from '../public/check.svg'
+import Check from '../public/images/check.svg'
 
 export default function ServiceItem({ children }) {
   return (
