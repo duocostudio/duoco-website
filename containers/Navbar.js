@@ -25,10 +25,10 @@ export default function Navbar() {
     <div>
       {
         showMenu &&
-        <div className="fixed left-0 right-0 top-0">
+        <div className="fixed left-0 right-0 top-0 z-10">
           <div className="w-screen h-screen flex flex-row justify-end">
-            <div onClick={handleMenu} className="w-1/2 h-full bg-white bg-opacity-75"></div>
-            <div className="flex flex-col items-center w-1/2 h-full bg-black overflow-y-scroll">
+            <div onClick={handleMenu} className="hidden lg:flex lg:w-1/2 h-full bg-white bg-opacity-75"></div>
+            <div className="flex flex-col items-center w-full lg:w-1/2 h-full bg-black overflow-y-scroll">
               <div className="h-20 flex-shrink-0"></div>
               <div className="flex flex-col items-center space-y-6">
                 <h1 className="cursor-pointer font-light text-4xl text-white border-white border-b-2">Home</h1>
