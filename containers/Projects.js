@@ -11,7 +11,7 @@ const PROJECTS = [
     title: '360 Juice',
     logo: '/images/customers/360juice@2x.png',
     description: 'Rebranding, Strategy & Design for one of the world largest job searching platform.',
-    tags: ['Brand', 'Web', 'iOS', 'Android'],
+    tags: ['Brand', 'Web', 'Mobile'],
     backgroundColor: 'bg-green-600'
   },
   {
@@ -49,17 +49,17 @@ export default function Projects() {
     <div>
       <section>
         <Container>
-          <div className="p-24">
+          <div className="lg:p-24">
             <div className="flex flex-col">
               <div className="h-20"></div>
-              <div className="flex flex-row items-center mb-20">
+              <div className="flex flex-col lg:flex-row lg:items-center mb-20">
                 <div className="flex flex-col">
                   <Fade triggerOnce cascade>
                     <Title>Case</Title>
                     <Subtitle>Studies</Subtitle>
                   </Fade>
                 </div>
-                <div className="ml-auto w-5/12">
+                <div className="mt-10 lg:mt-0 lg:ml-auto lg:w-5/12">
                   <Fade triggerOnce delay={900}>
                     <Paragraph>
                       Check out some featured projects we’ve been

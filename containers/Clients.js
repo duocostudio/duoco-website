@@ -33,17 +33,17 @@ export default function Clients() {
     <div>
       <section>
         <Container>
-          <div className="p-24">
+          <div className="lg:p-24">
             <div className="flex flex-col">
               <div className="h-20"></div>
-              <div className="flex flex-row items-center mb-20">
+              <div className="flex flex-col lg:flex-row lg:items-center mb-20">
                 <div className="flex flex-col">
                   <Fade triggerOnce cascade>
                     <Title>Our</Title>
                     <Subtitle>Clients</Subtitle>
                   </Fade>
                 </div>
-                <span className="ml-auto w-1/2">
+                <span className="mt-10 lg:mt-0 lg:ml-auto lg:w-1/2">
                   <Fade triggerOnce delay={900}>
                     <Paragraph>
                       We’re lucky enough to work with many startups and leaders.

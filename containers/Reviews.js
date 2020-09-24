@@ -46,7 +46,7 @@ export default function Reviews() {
     <div>
       <section>
         <Container>
-          <div className="px-24">
+          <div className="lg:px-24">
             <div className="flex flex-col">
               <div className="h-40"></div>
               <Fade triggerOnce cascade>
@@ -54,8 +54,8 @@ export default function Reviews() {
                 <Subtitle>Words on the street</Subtitle>
               </Fade>
               <div className="h-10"></div>
-              <div className="flex flex-row space-x-16 items-end">
-                <img className="w-4/12" src={review.picture}></img>
+              <div className="flex flex-col lg:flex-row lg:space-x-16 lg:items-end">
+                <img className="w-64 lg:w-4/12" src={review.picture}></img>
                 <div className="flex flex-col">
                   <div className="-mb-12">
                     <span className="font-bold" style={{ fontSize: 100 }}>“</span>
@@ -65,14 +65,14 @@ export default function Reviews() {
                       <Paragraph>{review.comment}</Paragraph>
                     </Fade>
                   </div>
-                  <div className="flex flex-row items-end">
+                  <div className="flex flex-col lg:flex-row lg:items-end">
                     <div className="flex flex-col">
                       <Fade triggerOnce cascade>
                         <h4 className="text-2xl font-bold">{review.author}</h4>
                         <h5 className="text-lg text-black text-opacity-50">{review.label}</h5>
                       </Fade>
                     </div>
-                    <div className="flex flex-row items-center ml-auto">
+                    <div className="mt-10 lg:mt-0 flex flex-row items-center lg:ml-auto">
                       <div
                         onClick={handlePrev}
                         className="cursor-pointer select-none bg-gray-500 hover:bg-gray-600 w-16 h-16"></div>

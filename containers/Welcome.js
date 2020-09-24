@@ -22,7 +22,7 @@ export default function Welcome() {
               <Fade triggerOnce cascade>
                 <Title>We design products</Title>
                 <Subtitle>people love to use</Subtitle>
-                <div className="w-1/2 mt-16">
+                <div className="w-auto lg:w-1/2 mt-16">
                   <Paragraph>
                     We help startups and Fortune 500 companies craft engaging
                     brands, websites, and apps. Based in Tijuana, Mexico.

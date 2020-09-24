@@ -16,7 +16,7 @@ export default function ContactUs() {
             <Fade triggerOnce cascade>
               <Title>Need help with a project?</Title>
               <Subtitle>Let’s talk!</Subtitle>
-              <div className="my-10 mx-auto w-1/2">
+              <div className="my-10 mx-auto lg:w-1/2">
                 <Paragraph>
                   Get support with a large platform, flesh out your first MVP, go from
                   concept to investment, or take your startup to the next level. We’re here

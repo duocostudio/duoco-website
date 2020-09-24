@@ -56,7 +56,7 @@ export default function Navbar() {
         </div>
       }
 
-      <div className="fixed left-0 right-0 top-0">
+      <div className="fixed left-0 right-0 top-0 z-10">
         <Container>
           <div className="flex flex-row items-center h-40">
             <div className="ml-auto flex flex-row items-center">

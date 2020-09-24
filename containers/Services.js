@@ -34,15 +34,15 @@ export default function Services() {
               <Subtitle>What we do</Subtitle>
             </Fade>
             <div className="h-32"></div>
-            <div className="flex flex-row px-24">
+            <div className="flex flex-col lg:flex-row lg:px-24">
               <ul>
                 <Fade triggerOnce cascade>
-                  {SERVICES_LEFT.slice(0, 6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
+                  {SERVICES_LEFT.map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
                 </Fade>
               </ul>
-              <ul className="ml-auto">
+              <ul className="lg:ml-auto">
                 <Fade triggerOnce cascade>
-                  {SERVICES_RIGHT.slice(6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
+                  {SERVICES_RIGHT.map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
                 </Fade>
               </ul>
             </div>
