@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { Fade } from 'react-awesome-reveal'
 
 import Button from '../components/Button'
 import DuocoLogo from '../components/DuocoLogo'
@@ -156,10 +157,10 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Duōco Design Agency" />
         <meta property="og:description" content="We design products people love" />
-        <meta property="og:image" content="/favicon.png" />
+        <meta property="og:image" content="/images/favicon.png" />
         <meta property="og:url" content="https://duoco-website.vercel.app/" />
         <meta property="og:site_name" content="Duōco Design Agency" />
-        <link rel="icon" type="image/svg" href="/favicon.svg"></link>
+        <link rel="icon" type="image/svg" href="/images/favicon.svg"></link>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css" integrity="sha512-KO1h5ynYuqsFuEicc7DmOQc+S9m2xiCKYlC3zcZCSEw0RGDsxcMnppRaMZnb0DdzTDPaW22ID/gAGCZ9i+RT/w==" crossOrigin="anonymous" />
       </Head>
 
@@ -217,19 +218,20 @@ export default function Home() {
             </div>
             <div className="h-16"></div>
             <div className="flex flex-col">
-              <Title>We design products</Title>
-              <Subtitle>people love to use</Subtitle>
+              <Fade cascade>
+                <Title>We design products</Title>
+                <Subtitle>people love to use</Subtitle>
+                <div className="w-1/2 mt-16">
+                  <Paragraph>
+                    We help startups and Fortune 500 companies craft engaging
+                    brands, websites, and apps. Based in Tijuana, Mexico.
+                  </Paragraph>
+                </div>
+                <div className="flex my-16">
+                  <Button>Contact us</Button>
+                </div>
+              </Fade>
             </div>
-            <div className="h-16"></div>
-            <div className="w-1/2">
-              <Paragraph>
-                We help startups and Fortune 500 companies craft engaging
-                brands, websites, and apps. Based in Tijuana, Mexico.
-              </Paragraph>
-            </div>
-            <div className="h-16"></div>
-            <Button>Contact us</Button>
-            <div className="h-16"></div>
           </div>
         </Container>
       </section>
@@ -242,26 +244,32 @@ export default function Home() {
               <div className="h-20"></div>
               <div className="flex flex-row items-center mb-20">
                 <div className="flex flex-col">
-                  <Title>Case</Title>
-                  <Subtitle>Studies</Subtitle>
+                  <Fade cascade>
+                    <Title>Case</Title>
+                    <Subtitle>Studies</Subtitle>
+                  </Fade>
                 </div>
                 <div className="ml-auto w-5/12">
-                  <Paragraph>
-                    Check out some featured projects we’ve been
-                    working on. Want to see more? Contact us for more
-                    information.
+                  <Fade delay={900}>
+                    <Paragraph>
+                      Check out some featured projects we’ve been
+                      working on. Want to see more? Contact us for more
+                      information.
                   </Paragraph>
+                  </Fade>
                 </div>
               </div>
-              {PROJECTS.map((item, index) => (
-                <Project
-                  key={index}
-                  title={item.title}
-                  logo={item.logo}
-                  description={item.description}
-                  backgroundColor={item.backgroundColor}
-                  tags={item.tags} />
-              ))}
+              <Fade>
+                {PROJECTS.map((item, index) => (
+                  <Project
+                    key={index}
+                    title={item.title}
+                    logo={item.logo}
+                    description={item.description}
+                    backgroundColor={item.backgroundColor}
+                    tags={item.tags} />
+                ))}
+              </Fade>
             </div>
           </div>
         </Container>
@@ -275,23 +283,29 @@ export default function Home() {
               <div className="h-20"></div>
               <div className="flex flex-row items-center mb-20">
                 <div className="flex flex-col">
-                  <Title>Our</Title>
-                  <Subtitle>Clients</Subtitle>
+                  <Fade cascade>
+                    <Title>Our</Title>
+                    <Subtitle>Clients</Subtitle>
+                  </Fade>
                 </div>
                 <span className="ml-auto w-1/2">
-                  <Paragraph>
-                    We’re lucky enough to work with many startups and leaders.
-                  </Paragraph>
+                  <Fade delay={900}>
+                    <Paragraph>
+                      We’re lucky enough to work with many startups and leaders.
+                    </Paragraph>
+                  </Fade>
                 </span>
               </div>
               <ul className="flex flex-row items-center justify-center space-x-6">
-                {CLIENTS.map((item, index) => (
-                  <li key={index}>
-                    <div className="flex flex-row items-center justify-center">
-                      <img className="w-48" src={item.logo}></img>
-                    </div>
-                  </li>
-                ))}
+                <Fade cascade>
+                  {CLIENTS.map((item, index) => (
+                    <li key={index}>
+                      <div className="flex flex-row items-center justify-center">
+                        <img className="w-48" src={item.logo}></img>
+                      </div>
+                    </li>
+                  ))}
+                </Fade>
               </ul>
               <div className="h-20"></div>
             </div>
@@ -304,15 +318,21 @@ export default function Home() {
         <Container>
           <div className="flex flex-col">
             <div className="h-40"></div>
-            <Title>Services</Title>
-            <Subtitle>What we do</Subtitle>
+            <Fade cascade>
+              <Title>Services</Title>
+              <Subtitle>What we do</Subtitle>
+            </Fade>
             <div className="h-32"></div>
             <div className="flex flex-row px-24">
               <ul>
-                {SERVICES.slice(0, 6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
+                <Fade cascade>
+                  {SERVICES.slice(0, 6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
+                </Fade>
               </ul>
               <ul className="ml-auto">
-                {SERVICES.slice(6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
+                <Fade cascade>
+                  {SERVICES.slice(6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
+                </Fade>
               </ul>
             </div>
             <div className="h-40"></div>
@@ -326,8 +346,10 @@ export default function Home() {
           <div className="px-24">
             <div className="flex flex-col">
               <div className="h-40"></div>
-              <Title>Reviews</Title>
-              <Subtitle>Words on the street</Subtitle>
+              <Fade cascade>
+                <Title>Reviews</Title>
+                <Subtitle>Words on the street</Subtitle>
+              </Fade>
               <div className="h-10"></div>
               <div className="flex flex-row space-x-16 items-end">
                 <img className="w-4/12" src={review.picture}></img>
@@ -336,12 +358,16 @@ export default function Home() {
                     <span className="font-bold" style={{ fontSize: 100 }}>“</span>
                   </div>
                   <div className="mb-16">
-                    <Paragraph>{review.comment}</Paragraph>
+                    <Fade>
+                      <Paragraph>{review.comment}</Paragraph>
+                    </Fade>
                   </div>
                   <div className="flex flex-row items-end">
                     <div className="flex flex-col">
-                      <h4 className="text-2xl font-bold">{review.author}</h4>
-                      <h5 className="text-lg text-black text-opacity-50">{review.label}</h5>
+                      <Fade cascade>
+                        <h4 className="text-2xl font-bold">{review.author}</h4>
+                        <h5 className="text-lg text-black text-opacity-50">{review.label}</h5>
+                      </Fade>
                     </div>
                     <div className="flex flex-row items-center ml-auto">
                       <div
@@ -365,16 +391,18 @@ export default function Home() {
         <Container>
           <div className="flex flex-col items-center text-center">
             <div className="h-40"></div>
-            <Title>Need help with a project?</Title>
-            <Subtitle>Let’s talk!</Subtitle>
-            <div className="my-10 w-1/2">
-              <Paragraph>
-                Get support with a large platform, flesh out your first MVP, go from
-                concept to investment, or take your startup to the next level. We’re here
-                to support your unique business needs.
-              </Paragraph>
-            </div>
-            <Button>Contact us</Button>
+            <Fade cascade>
+              <Title>Need help with a project?</Title>
+              <Subtitle>Let’s talk!</Subtitle>
+              <div className="my-10 mx-auto w-1/2">
+                <Paragraph>
+                  Get support with a large platform, flesh out your first MVP, go from
+                  concept to investment, or take your startup to the next level. We’re here
+                  to support your unique business needs.
+                </Paragraph>
+              </div>
+              <Button>Contact us</Button>
+            </Fade>
             <div className="h-56"></div>
           </div>
         </Container>
@@ -385,23 +413,31 @@ export default function Home() {
         <Container>
           <div className="flex flex-col">
             <div className="flex flex-row items-center">
-              <DuocoLogo />
+              <Fade>
+                <DuocoLogo />
+              </Fade>
               <div className="ml-auto flex flex-row items-center space-x-5">
-                {FOOTER_SOCIAL_LINKS.map((item, index) => (
-                  <SocialItem
-                    key={index}
-                    title={item.title}
-                    icon={item.icon} />
-                ))}
+                <Fade cascade>
+                  {FOOTER_SOCIAL_LINKS.map((item, index) => (
+                    <SocialItem
+                      key={index}
+                      title={item.title}
+                      icon={item.icon} />
+                  ))}
+                </Fade>
               </div>
             </div>
             <div className="h-12"></div>
             <div className="flex flex-row items-center">
               <div className="flex flex-row space-x-12">
-                {FOOTTER_LINKS.map((item, index) => <span key={index}>{item.title}</span>)}
+                <Fade cascade>
+                  {FOOTTER_LINKS.map((item, index) => <span key={index}>{item.title}</span>)}
+                </Fade>
               </div>
               <div className="ml-auto">
-                <span>&copy; {new Date().getFullYear()} Duōco.  All Rights Reserved.</span>
+                <Fade>
+                  <span>&copy; {new Date().getFullYear()} Duōco.  All Rights Reserved.</span>
+                </Fade>
               </div>
             </div>
             <div className="h-24"></div>
