@@ -5,13 +5,16 @@ import ServiceItem from '../components/ServiceItem'
 import Subtitle from '../components/Subtitle'
 import Title from '../components/Title'
 
-const SERVICES = [
+const SERVICES_LEFT = [
   { title: 'Branding & Visual Identity' },
   { title: 'Wireframing & User Testing' },
   { title: 'Mobile App & Web Design' },
   { title: 'E-commerce & Shopify' },
   { title: 'Design Systems' },
   { title: 'Flutter App Design' },
+]
+
+const SERVICES_RIGHT = [
   { title: 'Animation & Motion Design' },
   { title: 'Illustrations (Vectorized, 3D & more)' },
   { title: 'User Experience Design' },
@@ -34,12 +37,12 @@ export default function Services() {
             <div className="flex flex-row px-24">
               <ul>
                 <Fade cascade>
-                  {SERVICES.slice(0, 6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
+                  {SERVICES_LEFT.slice(0, 6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
                 </Fade>
               </ul>
               <ul className="ml-auto">
                 <Fade cascade>
-                  {SERVICES.slice(6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
+                  {SERVICES_RIGHT.slice(6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
                 </Fade>
               </ul>
             </div>
