@@ -46,7 +46,7 @@ export default function Footer() {
             </div>
             <div className="h-12"></div>
             <div className="flex flex-col lg:flex-row items-center">
-              <div className="flex flex-row space-x-12">
+              <div className="flex flex-row space-x-5 lg:space-x-12">
                 <Fade triggerOnce cascade>
                   {SITE_LINKS.map((item, index) => <span key={index}>{item.title}</span>)}
                 </Fade>
