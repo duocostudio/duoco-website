@@ -49,7 +49,7 @@ export default function Reviews() {
           <div className="px-24">
             <div className="flex flex-col">
               <div className="h-40"></div>
-              <Fade cascade>
+              <Fade triggerOnce cascade>
                 <Title>Reviews</Title>
                 <Subtitle>Words on the street</Subtitle>
               </Fade>
@@ -61,13 +61,13 @@ export default function Reviews() {
                     <span className="font-bold" style={{ fontSize: 100 }}>“</span>
                   </div>
                   <div className="mb-16">
-                    <Fade>
+                    <Fade triggerOnce>
                       <Paragraph>{review.comment}</Paragraph>
                     </Fade>
                   </div>
                   <div className="flex flex-row items-end">
                     <div className="flex flex-col">
-                      <Fade cascade>
+                      <Fade triggerOnce cascade>
                         <h4 className="text-2xl font-bold">{review.author}</h4>
                         <h5 className="text-lg text-black text-opacity-50">{review.label}</h5>
                       </Fade>

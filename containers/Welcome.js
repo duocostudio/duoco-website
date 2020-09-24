@@ -19,7 +19,7 @@ export default function Welcome() {
             </div>
             <div className="h-16"></div>
             <div className="flex flex-col">
-              <Fade cascade>
+              <Fade triggerOnce cascade>
                 <Title>We design products</Title>
                 <Subtitle>people love to use</Subtitle>
                 <div className="w-1/2 mt-16">

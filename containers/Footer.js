@@ -30,11 +30,11 @@ export default function Footer() {
         <Container>
           <div className="flex flex-col">
             <div className="flex flex-row items-center">
-              <Fade>
+              <Fade triggerOnce>
                 <DuocoLogo />
               </Fade>
               <div className="ml-auto flex flex-row items-center space-x-5">
-                <Fade cascade>
+                <Fade triggerOnce cascade>
                   {SOCIAL_LINKS.map((item, index) => (
                     <SocialItem
                       key={index}
@@ -47,12 +47,12 @@ export default function Footer() {
             <div className="h-12"></div>
             <div className="flex flex-row items-center">
               <div className="flex flex-row space-x-12">
-                <Fade cascade>
+                <Fade triggerOnce cascade>
                   {SITE_LINKS.map((item, index) => <span key={index}>{item.title}</span>)}
                 </Fade>
               </div>
               <div className="ml-auto">
-                <Fade>
+                <Fade triggerOnce>
                   <span>&copy; {new Date().getFullYear()} Duōco.  All Rights Reserved.</span>
                 </Fade>
               </div>

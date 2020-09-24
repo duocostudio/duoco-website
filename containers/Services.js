@@ -29,19 +29,19 @@ export default function Services() {
         <Container>
           <div className="flex flex-col">
             <div className="h-40"></div>
-            <Fade cascade>
+            <Fade triggerOnce cascade>
               <Title>Services</Title>
               <Subtitle>What we do</Subtitle>
             </Fade>
             <div className="h-32"></div>
             <div className="flex flex-row px-24">
               <ul>
-                <Fade cascade>
+                <Fade triggerOnce cascade>
                   {SERVICES_LEFT.slice(0, 6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
                 </Fade>
               </ul>
               <ul className="ml-auto">
-                <Fade cascade>
+                <Fade triggerOnce cascade>
                   {SERVICES_RIGHT.slice(6).map((item, index) => <ServiceItem key={index}>{item.title}</ServiceItem>)}
                 </Fade>
               </ul>

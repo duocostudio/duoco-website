@@ -38,13 +38,13 @@ export default function Clients() {
               <div className="h-20"></div>
               <div className="flex flex-row items-center mb-20">
                 <div className="flex flex-col">
-                  <Fade cascade>
+                  <Fade triggerOnce cascade>
                     <Title>Our</Title>
                     <Subtitle>Clients</Subtitle>
                   </Fade>
                 </div>
                 <span className="ml-auto w-1/2">
-                  <Fade delay={900}>
+                  <Fade triggerOnce delay={900}>
                     <Paragraph>
                       We’re lucky enough to work with many startups and leaders.
                     </Paragraph>
@@ -52,7 +52,7 @@ export default function Clients() {
                 </span>
               </div>
               <ul className="flex flex-row items-center justify-center space-x-6">
-                <Fade cascade>
+                <Fade triggerOnce cascade>
                   {CLIENTS.map((item, index) => (
                     <li key={index}>
                       <div className="flex flex-row items-center justify-center">

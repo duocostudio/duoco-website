@@ -54,13 +54,13 @@ export default function Projects() {
               <div className="h-20"></div>
               <div className="flex flex-row items-center mb-20">
                 <div className="flex flex-col">
-                  <Fade cascade>
+                  <Fade triggerOnce cascade>
                     <Title>Case</Title>
                     <Subtitle>Studies</Subtitle>
                   </Fade>
                 </div>
                 <div className="ml-auto w-5/12">
-                  <Fade delay={900}>
+                  <Fade triggerOnce delay={900}>
                     <Paragraph>
                       Check out some featured projects we’ve been
                       working on. Want to see more? Contact us for more
@@ -69,7 +69,7 @@ export default function Projects() {
                   </Fade>
                 </div>
               </div>
-              <Fade>
+              <Fade triggerOnce>
                 {PROJECTS.map((item, index) => (
                   <Project
                     key={index}

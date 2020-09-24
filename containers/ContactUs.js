@@ -13,7 +13,7 @@ export default function ContactUs() {
         <Container>
           <div className="flex flex-col items-center text-center">
             <div className="h-40"></div>
-            <Fade cascade>
+            <Fade triggerOnce cascade>
               <Title>Need help with a project?</Title>
               <Subtitle>Let’s talk!</Subtitle>
               <div className="my-10 mx-auto w-1/2">
